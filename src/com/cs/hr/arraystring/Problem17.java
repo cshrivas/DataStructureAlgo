@@ -1,6 +1,6 @@
 package com.cs.hr.arraystring;
 
-public class RotateMatrix {
+public class Problem17 {
     public static void main(String[] args) {
         int[][] matrix= new int[5][5];
         matrix[0] = new int[]{1, 2, 3, 4,5};

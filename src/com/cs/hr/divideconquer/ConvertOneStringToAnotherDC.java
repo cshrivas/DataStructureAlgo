@@ -1,6 +1,6 @@
 package com.cs.hr.divideconquer;
 
-public class ConvertOneStringToAnother_DC {
+public class ConvertOneStringToAnotherDC {
 
     public int findMinOperations(String s1, String s2) {
         return findMinOperationsAux(s1, s2, 0, 0);
@@ -24,7 +24,7 @@ public class ConvertOneStringToAnother_DC {
     }//end of method
 
     public static void main(String[] args) {
-        ConvertOneStringToAnother_DC editDisatnce = new ConvertOneStringToAnother_DC();
+        ConvertOneStringToAnotherDC editDisatnce = new ConvertOneStringToAnotherDC();
         System.out.println(editDisatnce.findMinOperations("table", "chair"));
 
     }//end of method

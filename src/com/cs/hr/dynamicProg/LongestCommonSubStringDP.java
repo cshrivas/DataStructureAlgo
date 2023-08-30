@@ -1,6 +1,6 @@
 package com.cs.hr.dynamicProg;
 
-public class LongestCommonSubString_DP {
+public class LongestCommonSubStringDP {
     public static void main(String[] args) {
         int n = findMaxSubString("CHANDRA","ANDYNDRA");
         System.out.println(n);
