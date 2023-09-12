@@ -8,22 +8,45 @@ public class BinarySearchTree {
 
     // Temporary node for case 2
     static Node temp = new Node();
+    static boolean flag=true;
 
     public static void main(String[] args) {
-        int[] arr={100,80,200,70,90,150,300,50,250,400,40,60};
-        Node root=null;
-        for (int j : arr) {
-            root = insertNode(root, j);
-        }
-        //inorderTraverse(root);
-        //inorderSuccessor(root,60);
-        System.out.println(checkBST(root));
+//        int[] arr={100,80,200,70,90,150,300,50,250,400,40,60};
+//        Node root=null;
+//        for (int j : arr) {
+//            root = insertNode(root, j);
+//        }
+//        //inorderTraverse(root);
+//        //inorderSuccessor(root,60);
+//        System.out.println(checkBST(root));
+        List<Integer> list=new ArrayList<>();
+        Node root1= new Node(1,new Node(1,null,null),null);
+        checkBSTNew(root1,null);
+        System.out.println(flag);
+
+        //[5,4,6,null,null,3,7]
     }
 
-    private static boolean checkBST(Node root) {
+    private static void checkBSTNew(Node root,Node prev) {
+        if (root==null)
+            return;
+
+        checkBSTNew(root.getLeft(), prev);
+        if(prev!=null && root.getData()<prev.getData()) {
+            flag=false;
+        }
+        prev=root;
+        System.out.println("prev :" +prev +" data: "+root.getData());
+
+        checkBSTNew(root.getRight(),prev);
+
+
+    }
+    private static boolean checkBST(Node root,Node parent) {
         if(root==null)
             return true;
         if(root.getLeft()!=null && root.getLeft().getData()>root.getData()){
+
             return false;
         }
 
@@ -31,7 +54,21 @@ public class BinarySearchTree {
             return false;
         }
 
-        if(!checkBST(root.getLeft()) || !checkBST(root.getRight())){
+        if(parent!=null){
+            if(root.getData()<parent.getData()){
+                if((root.getLeft()!=null && root.getLeft().getData()>parent.getData()) || (root.getRight()!=null && root.getRight().getData()>parent.getData())){
+                    return false;
+                }
+            }else {
+                if((root.getLeft()!=null && root.getLeft().getData()<parent.getData()) || (root.getRight()!=null && root.getRight().getData()<parent.getData())){
+                    return false;
+                }
+            }
+        }
+
+
+
+        if(!checkBST(root.getLeft(),root) || !checkBST(root.getRight(),root)){
             return false;
         }
 

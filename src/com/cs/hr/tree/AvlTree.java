@@ -5,23 +5,26 @@ import java.util.Queue;
 
 public class AvlTree {
     public static void main(String[] args) {
-        int[] arr={30,20,40,10,5,3,4,50,60,70,65};
+        //int[] arr={30,20,40,10,5,3,4,50,60,70,65};
+        int[] arr={40,30,50,60};
         Node root=null;
+        Queue<Node> queueP=new LinkedList<>();
+
         for (int i=0;i<arr.length;i++){
             root=insertNode(root,arr[i]);
             //BinaryTree.levelOrderTraverse(root);
         }
         //System.out.println(FindMaxChain.maximumChain(root));
         //deleteNode(root,)
-
+        root=insertNode(root,55);
         //root=deleteNode(root,50);
         BinaryTree.levelOrderTraverse(root);
-        for (int i=arr.length-1;i>=0;i--){
-            System.out.println("Delete logic " + arr[i]);
-            root=deleteNode(root,arr[i]);
-            BinaryTree.levelOrderTraverse(root);
-            System.out.println("");
-        }
+//        for (int i=arr.length-1;i>=0;i--){
+//            System.out.println("Delete logic " + arr[i]);
+//            root=deleteNode(root,arr[i]);
+//            BinaryTree.levelOrderTraverse(root);
+//            System.out.println("");
+//        }
     }
 
     private static Node deleteNode(Node root, int i) {

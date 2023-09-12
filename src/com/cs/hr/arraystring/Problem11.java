@@ -47,4 +47,16 @@ public class Problem11 {
         }
         return true;
     }
+
+    private static boolean isUnique3(String test){
+        boolean[] chars = new boolean[128];
+        for (int i = 0; i < test.length(); i++) {
+            int val=test.charAt(i);
+            if(chars[val]){
+                return false;
+            }
+            chars[val]=true;
+        }
+        return true;
+    }
 }
